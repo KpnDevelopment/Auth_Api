@@ -1,0 +1,36 @@
+
+
+
+
+
+POST  http://localhost:4001/api/user/register
+
+###
+
+POST  http://localhost:4001/api/user/register
+Content-Type: application/json
+
+{
+    
+    "name":"kpnkpn",
+    "email":"kpn@gmail.com",
+    "password":"123456"
+}
+
+
+###
+
+POST  http://localhost:4001/api/user/login
+Content-Type: application/json
+
+{
+
+      "email":"kpn@gmail.com",
+        "password":"123456"
+}
+
+###
+
+
+GET  http://localhost:4001/api/posts
+
