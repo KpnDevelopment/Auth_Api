@@ -7,7 +7,7 @@ const { registerValidation, loginValidation } = require('../validation');
 const express = require('express');
 // const { baseModelName } = require('../models/User');
 
-
+const verify = require('./verifyToken')
 
 router.post("/register", async (req, res) => {
 
@@ -60,11 +60,22 @@ router.post('/login', async (req, res) => {
     // create and assign a token
 
     const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token)
+    // res.header('auth-token', token).send(token)
+    res.status(200).json({token:token,user:user._id})
 })
 
 
+router.post("/get",verify, async(req, res, next)=>{
 
+try {
+    let doc = await User.findOne(req.body).select("name email");
+    res.status(200).json({user:doc})
+    
+} catch (error) {
+    res.status(200).json({ error: error})
+}
+
+})
 
 
 

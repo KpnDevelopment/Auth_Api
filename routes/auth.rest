@@ -34,3 +34,16 @@ Content-Type: application/json
 
 GET  http://localhost:4001/api/posts
 
+###
+
+
+
+POST  http://localhost:4001/api/user/get
+Content-Type: application/json
+
+{
+
+      "_id":"6273c2051a6ef672bd6b4f50"
+}
+
+###
